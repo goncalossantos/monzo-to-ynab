@@ -24,7 +24,6 @@ class YNAB(object):
         conn = nYnabConnection(self.username, self.password)
         try:
             client = nYnabClient(nynabconnection=conn, budgetname=self.budget_name)
-            client.sync()
             return client
         except BudgetNotFound:
             raise InvalidYnabSettings("No Budged with that name")
